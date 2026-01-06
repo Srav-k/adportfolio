@@ -20,8 +20,8 @@ const Projects = () => {
 
   // Main background and spacing for the whole section
   const sectionStyle = {
-    padding: '6rem 1.5rem',
-    backgroundColor: '#0f172a', // Deep slate-900
+    padding: 'clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 1.5rem)',
+    backgroundColor: '#0f172a',
     minHeight: '100vh',
   };
 
@@ -32,18 +32,18 @@ const Projects = () => {
 
   const headerStyle = {
     textAlign: 'center',
-    marginBottom: '5rem',
+    marginBottom: 'clamp(2rem, 6vw, 5rem)',
   };
 
   const titleStyle = {
-    fontSize: '2.25rem',
+    fontSize: 'clamp(1.5rem, 5vw, 2.25rem)',
     fontWeight: 'bold',
     marginBottom: '1rem',
     color: '#ffffff',
   };
 
   const underlineStyle = {
-    width: '5rem',
+    width: 'clamp(3rem, 8vw, 5rem)',
     height: '0.25rem',
     backgroundColor: '#3b82f6',
     margin: '0 auto',
@@ -52,8 +52,8 @@ const Projects = () => {
 
   const gridStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '2.5rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: 'clamp(1.5rem, 4vw, 2.5rem)',
   };
 
   return (
@@ -86,12 +86,10 @@ const ProjectCard = ({ project, index }) => {
   const getImageUrl = (imageSource) => {
     if (!imageSource) return 'https://via.placeholder.com/800x450?text=No+Image';
     
-    // If the image is a web link (starts with http), use it directly
     if (imageSource.startsWith('http')) {
       return imageSource;
     }
     
-    // Otherwise, look for the file in your local src/assets folder
     try {
       return new URL(`../assets/${imageSource}`, import.meta.url).href;
     } catch (error) {
@@ -100,7 +98,7 @@ const ProjectCard = ({ project, index }) => {
   };
 
   const cardStyle = {
-    backgroundColor: 'rgba(30, 41, 59, 0.4)', // semi-transparent dark blue
+    backgroundColor: 'rgba(30, 41, 59, 0.4)',
     borderRadius: '1.5rem',
     overflow: 'hidden',
     border: `1px solid ${isHovered ? 'rgba(59, 130, 246, 0.5)' : 'rgba(255, 255, 255, 0.05)'}`,
@@ -111,7 +109,7 @@ const ProjectCard = ({ project, index }) => {
   const imageContainerStyle = {
     position: 'relative',
     overflow: 'hidden',
-    aspectRatio: '16/9', // Makes all images the same size
+    aspectRatio: '16/9',
   };
 
   const imageStyle = {
@@ -119,7 +117,7 @@ const ProjectCard = ({ project, index }) => {
     height: '100%',
     objectFit: 'cover',
     transition: 'transform 0.7s ease, filter 0.7s ease',
-    transform: isHovered ? 'scale(1.1)' : 'scale(1)', // Zooms in on hover
+    transform: isHovered ? 'scale(1.1)' : 'scale(1)',
     filter: isHovered ? 'brightness(1)' : 'brightness(0.75)',
   };
 
@@ -147,12 +145,12 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* PROJECT CONTENT */}
-      <div style={{ padding: '2rem' }}>
+      <div style={{ padding: 'clamp(1rem, 3vw, 2rem)' }}>
         <h3 style={{
-          fontSize: '1.5rem',
+          fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
           fontWeight: 'bold',
           marginBottom: '1rem',
-          color: isHovered ? '#60a5fa' : '#ffffff', // Changes to blue on hover
+          color: isHovered ? '#60a5fa' : '#ffffff',
           transition: 'color 0.3s ease'
         }}>
           {project.title}
@@ -160,26 +158,27 @@ const ProjectCard = ({ project, index }) => {
 
         <p style={{ 
           color: '#94a3b8', 
-          marginBottom: '1.5rem', 
+          marginBottom: 'clamp(1rem, 3vw, 1.5rem)', 
           lineHeight: '1.6',
+          fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
           minHeight: '4.8rem' 
         }}>
           {project.description}
         </p>
 
-        {/* TECH TAGS (React, Tailwind, etc) */}
+        {/* TECH TAGS */}
         <div style={{ 
           display: 'flex', 
           flexWrap: 'wrap', 
           gap: '0.5rem', 
-          marginBottom: '2rem' 
+          marginBottom: 'clamp(1.5rem, 4vw, 2rem)' 
         }}>
           {project.tech.map(tech => (
             <span key={tech} style={{
                 padding: '0.25rem 0.75rem',
                 backgroundColor: 'rgba(59, 130, 246, 0.1)',
                 color: '#60a5fa',
-                fontSize: '0.75rem',
+                fontSize: 'clamp(0.7rem, 2vw, 0.75rem)',
                 fontWeight: 'bold',
                 borderRadius: '0.375rem',
                 textTransform: 'uppercase'
@@ -201,7 +200,7 @@ const ProjectCard = ({ project, index }) => {
             color: '#ffffff',
             fontWeight: 'bold',
             textDecoration: 'none',
-            fontSize: '1rem'
+            fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
           }}
         >
           View Project
@@ -210,7 +209,7 @@ const ProjectCard = ({ project, index }) => {
               width: '1.25rem', 
               height: '1.25rem',
               transition: 'transform 0.3s ease',
-              transform: isHovered ? 'translateX(5px)' : 'translateX(0)' // Moves arrow
+              transform: isHovered ? 'translateX(5px)' : 'translateX(0)'
             }}
             fill="none" stroke="currentColor" viewBox="0 0 24 24"
           >

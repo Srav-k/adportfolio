@@ -25,9 +25,7 @@ const ExperienceEducation = () => {
       period: "JUL 2021 - FEB 2022",
       role: "Junior Executive",
       company: "Shriram City Union Finance",
-      highlights: [
-        "Coordinated daily operations and documentation.",
-      ],
+      highlights: ["Coordinated daily operations and documentation."],
     },
   ];
 
@@ -42,7 +40,7 @@ const ExperienceEducation = () => {
   /* ===== STYLES ===== */
   const styles = {
     section: {
-      padding: "6rem 1.5rem",
+      padding: "clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 1.5rem)",
       backgroundColor: "rgba(15, 23, 42, 0.8)",
       minHeight: "100vh",
     },
@@ -52,16 +50,16 @@ const ExperienceEducation = () => {
     },
     header: {
       textAlign: "center",
-      marginBottom: "5rem",
+      marginBottom: "clamp(2rem, 6vw, 5rem)",
     },
     title: {
-      fontSize: "2.25rem",
+      fontSize: "clamp(1.5rem, 5vw, 2.25rem)",
       fontWeight: "bold",
       marginBottom: "1rem",
       color: "#ffffff",
     },
     underline: {
-      width: "5rem",
+      width: "clamp(3rem, 8vw, 5rem)",
       height: "0.25rem",
       backgroundColor: "#3b82f6",
       margin: "0 auto",
@@ -70,12 +68,12 @@ const ExperienceEducation = () => {
     timelineWrapper: {
       display: "flex",
       flexDirection: "column",
-      gap: "4rem",
+      gap: "clamp(2rem, 5vw, 4rem)",
     },
     subHeader: {
-      fontSize: "1.5rem",
+      fontSize: "clamp(1.25rem, 4vw, 1.5rem)",
       fontWeight: "bold",
-      marginBottom: "2rem",
+      marginBottom: "clamp(1rem, 3vw, 2rem)",
       display: "flex",
       alignItems: "center",
       gap: "0.75rem",
@@ -89,14 +87,15 @@ const ExperienceEducation = () => {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      fontSize: "clamp(1rem, 4vw, 1.25rem)",
     }),
     timelineLine: {
       borderLeft: "2px solid #1e293b",
       marginLeft: "1.25rem",
-      paddingLeft: "2rem",
+      paddingLeft: "clamp(1rem, 3vw, 2rem)",
       display: "flex",
       flexDirection: "column",
-      gap: "2rem",
+      gap: "clamp(1.5rem, 4vw, 2rem)",
     },
   };
 
@@ -172,8 +171,8 @@ const TimelineItem = ({ period, title, subtitle, highlights, accentColor }) => {
           position: "absolute",
           left: "-41px",
           top: "1.5rem",
-          width: "1rem",
-          height: "1rem",
+          width: "clamp(0.75rem, 2vw, 1rem)",
+          height: "clamp(0.75rem, 2vw, 1rem)",
           backgroundColor: accentColor,
           borderRadius: "50%",
           boxShadow: `0 0 10px ${accentColor}80`,
@@ -186,7 +185,7 @@ const TimelineItem = ({ period, title, subtitle, highlights, accentColor }) => {
           backgroundColor: hover
             ? "rgba(30, 41, 59, 0.6)"
             : "rgba(30, 41, 59, 0.3)",
-          padding: "1.5rem",
+          padding: "clamp(1rem, 3vw, 1.5rem)",
           borderRadius: "1rem",
           border: "1px solid rgba(255, 255, 255, 0.05)",
           transition: "all 0.3s ease",
@@ -194,7 +193,7 @@ const TimelineItem = ({ period, title, subtitle, highlights, accentColor }) => {
       >
         <span
           style={{
-            fontSize: "0.875rem",
+            fontSize: "clamp(0.75rem, 2.5vw, 0.875rem)",
             fontWeight: "600",
             color: accentColor,
             display: "block",
@@ -204,11 +203,23 @@ const TimelineItem = ({ period, title, subtitle, highlights, accentColor }) => {
           {period}
         </span>
 
-        <h4 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "#ffffff" }}>
+        <h4
+          style={{
+            fontSize: "clamp(1rem, 3vw, 1.25rem)",
+            fontWeight: "bold",
+            color: "#ffffff",
+          }}
+        >
           {title}
         </h4>
 
-        <p style={{ color: "#94a3b8", marginBottom: highlights ? "1rem" : "0" }}>
+        <p
+          style={{
+            color: "#94a3b8",
+            marginBottom: highlights ? "1rem" : "0",
+            fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+          }}
+        >
           {subtitle}
         </p>
 
@@ -217,7 +228,7 @@ const TimelineItem = ({ period, title, subtitle, highlights, accentColor }) => {
             style={{
               paddingLeft: "1.25rem",
               color: "#cbd5e1",
-              fontSize: "0.9375rem",
+              fontSize: "clamp(0.85rem, 2.5vw, 0.9375rem)",
               lineHeight: "1.6",
             }}
           >

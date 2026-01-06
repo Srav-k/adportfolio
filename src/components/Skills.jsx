@@ -91,9 +91,9 @@ export default Skills;
 /* ===== Inline Styles ===== */
 const styles = {
   section: {
-    padding: "140px 24px 220px", // 🔥 expanded height
+    padding: "clamp(4rem, 8vw, 8.75rem) clamp(1rem, 4vw, 1.5rem) clamp(6rem, 10vw, 13.75rem)",
     backgroundColor: "#0b1332ff",
-    minHeight: "100vh", // 🔥 taller section
+    minHeight: "100vh",
   },
   container: {
     maxWidth: "1200px",
@@ -101,16 +101,16 @@ const styles = {
   },
   header: {
     textAlign: "center",
-    marginBottom: "90px", // 🔥 more space
+    marginBottom: "clamp(2rem, 6vw, 5.5rem)",
   },
   title: {
-    fontSize: "38px",
+    fontSize: "clamp(1.75rem, 5vw, 2.375rem)",
     fontWeight: "700",
     color: "#ffffff",
-    marginBottom: "14px",
+    marginBottom: "clamp(0.75rem, 2vw, 1rem)",
   },
   underline: {
-    width: "90px",
+    width: "clamp(3.5rem, 8vw, 5.625rem)",
     height: "4px",
     backgroundColor: "#3b82f6",
     margin: "0 auto",
@@ -118,35 +118,35 @@ const styles = {
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "36px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: "clamp(1.5rem, 4vw, 2.25rem)",
   },
   card: {
     background: "linear-gradient(145deg, #121621ff, #4455a3ff)",
-    padding: "28px",
+    padding: "clamp(1.25rem, 3vw, 1.75rem)",
     borderRadius: "18px",
     borderTop: "4px solid #bfd1edff",
     boxShadow: "0 18px 35px rgba(0,0,0,0.45)",
     opacity: 0,
     transform: "translateY(50px)",
     transition: "0.7s ease",
-    height: "40vh",
+    minHeight: "clamp(220px, 40vh, 300px)",
   },
   category: {
     color: "#ffffff",
-    fontSize: "20px",
+    fontSize: "clamp(1rem, 3vw, 1.25rem)",
     fontWeight: "600",
-    marginBottom: "22px",
+    marginBottom: "clamp(1rem, 3vw, 1.375rem)",
     letterSpacing: "0.06em",
   },
   tags: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "12px",
+    gap: "clamp(0.5rem, 2vw, 0.75rem)",
   },
   tag: {
-    padding: "9px 16px",
-    fontSize: "14px",
+    padding: "clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1rem)",
+    fontSize: "clamp(0.75rem, 2.5vw, 0.875rem)",
     fontWeight: "500",
     borderRadius: "10px",
     cursor: "default",

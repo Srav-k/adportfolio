@@ -1,13 +1,9 @@
-import React, { useEffect, useRef, useState } from "react"; // Added useState for scrolled
+import React, { useEffect, useRef, useState } from "react";
 
 const About = () => {
   const titleRef = useRef(null);
   const cardRef = useRef(null);
   const infoRefs = useRef([]);
-
-  // We'll assume you have access to the 'scrolled' state from Navbar or lift it up.
-  // For this standalone About component, I'm adding a local scrolled detection here
-  // (duplicate of Navbar logic for demo purposes – in real app, share via context/props)
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -45,9 +41,10 @@ const About = () => {
     languages: "English, Telugu",
   };
 
+  // Responsive styles using clamp() and fluid units
   const styles = {
     section: {
-      padding: "6rem 1.5rem",
+      padding: "clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 1.5rem)",
       backgroundColor: "#0f172a",
       minHeight: "100vh",
     },
@@ -57,10 +54,10 @@ const About = () => {
     },
     header: {
       textAlign: "center",
-      marginBottom: "4rem",
+      marginBottom: "clamp(2rem, 5vw, 4rem)",
     },
     title: {
-      fontSize: "2.25rem",
+      fontSize: "clamp(1.5rem, 5vw, 2.25rem)",
       fontWeight: "bold",
       marginBottom: "1rem",
       color: "#ffffff",
@@ -69,7 +66,7 @@ const About = () => {
       transition: "all 0.8s ease",
     },
     underline: {
-      width: "5rem",
+      width: "clamp(3rem, 8vw, 5rem)",
       height: "0.25rem",
       backgroundColor: "#3b82f6",
       margin: "0 auto",
@@ -78,8 +75,8 @@ const About = () => {
     card: {
       backgroundColor: "rgba(30, 41, 59, 0.7)",
       backdropFilter: "blur(10px)",
-      padding: "3rem",
-      borderRadius: "1.5rem",
+      padding: "clamp(1.5rem, 4vw, 3rem)",
+      borderRadius: "clamp(1rem, 2vw, 1.5rem)",
       border: "1px solid rgba(255, 255, 255, 0.1)",
       boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
       opacity: 0,
@@ -87,16 +84,16 @@ const About = () => {
       transition: "all 0.9s ease",
     },
     introText: {
-      fontSize: "1.25rem",
-      lineHeight: "1.7",
+      fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
+      lineHeight: "1.6",
       color: "#cbd5e1",
       fontStyle: "italic",
-      marginBottom: "2.5rem",
+      marginBottom: "clamp(1.5rem, 4vw, 2.5rem)",
     },
     grid: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-      gap: "2rem",
+      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+      gap: "clamp(1rem, 3vw, 2rem)",
       color: "#cbd5e1",
     },
     infoItem: {
@@ -106,18 +103,18 @@ const About = () => {
       opacity: 0,
       transform: "translateY(20px)",
       transition: "all 0.8s ease",
+      fontSize: "clamp(0.9rem, 2vw, 1rem)",
     },
     label: {
       color: "#60a5fa",
       fontWeight: "bold",
-      width: "6.5rem",
+      minWidth: "6rem",
     },
     link: {
       color: "inherit",
       textDecoration: "none",
       transition: "color 0.3s",
     },
-    // New: Navbar bottom separator (visible when scrolled)
     navSeparator: {
       position: "absolute",
       bottom: "0",
@@ -186,8 +183,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Optional: If you want to add the separator directly here for testing */}
-      {/* In your real app, add this inside your Navbar component instead: */}
+      {/* Optional separator */}
       {/* <div style={styles.navSeparator}></div> */}
     </section>
   );
